@@ -1,9 +1,3 @@
-// Capa de "base de datos" del sitio, persistida en localStorage del navegador.
-// No hay backend real: todo el panel admin y el sitio público leen/escriben aquí,
-// por eso los cambios del admin (menú, mesas, config) se reflejan al instante
-// en las páginas públicas, y los registros/reservas/mensajes del público
-// aparecen al instante en el panel admin.
-
 const DB_KEY = "sazon-shoyu-db-v1";
 
 function uid(prefix = "id") {

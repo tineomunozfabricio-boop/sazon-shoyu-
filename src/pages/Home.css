@@ -92,7 +92,7 @@
 
 @media (max-width: 960px) {
   .hero {
-    grid-template-columns: 1fr; /* Cambiado a una sola columna en móvil */
+    grid-template-columns: 1fr;
     padding: 3rem 1.5rem;
     gap: 2rem;
   }

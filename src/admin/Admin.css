@@ -6,7 +6,6 @@
   color: var(--ink-soft);
 }
 
-/* Sidebar */
 .admin__sidebar {
   width: 250px;
   flex-shrink: 0;
