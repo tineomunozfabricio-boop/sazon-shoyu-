@@ -6,6 +6,7 @@ import Contacto from "./pages/Contacto.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Reservation from "./pages/Reservation.jsx";
+import MisReservas from "./pages/MisReservas.jsx";
 import AdminLogin from "./admin/AdminLogin.jsx";
 import AdminReservas from "./admin/AdminReservas.jsx";
 import AdminClientes from "./admin/AdminClientes.jsx";
@@ -25,6 +26,7 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/registro" element={<Register />} />
       <Route path="/reservar" element={<Reservation />} />
+      <Route path="/mis-reservas" element={<MisReservas />} />
 
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/admin" element={<AdminReservas />} />

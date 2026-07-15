@@ -6,6 +6,7 @@ const LINKS = [
   { to: "/", label: "Inicio" },
   { to: "/menu", label: "Menú" },
   { to: "/nosotros", label: "Nosotros" },
+  { to: "/mis-reservas", label: "Reservas" },
   { to: "/contacto", label: "Contacto" },
 ];
 
