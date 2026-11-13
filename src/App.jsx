@@ -5,7 +5,7 @@ import Nosotros from "./pages/Nosotros.jsx";
 import Contacto from "./pages/Contacto.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
-import Reservation from "./pages/Reservation.jsx";
+import Reservation from "./Reservass/Reservation.jsx";
 import MisReservas from "./pages/MisReservas.jsx";
 import AdminLogin from "./admin/AdminLogin.jsx";
 import AdminReservas from "./admin/AdminReservas.jsx";

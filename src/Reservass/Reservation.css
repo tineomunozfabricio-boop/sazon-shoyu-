@@ -1,0 +1,881 @@
+/* Estilos del flujo de reserva (carpeta Reservass).
+   Todo usa el prefijo "rv-" para no chocar con el resto del sitio. */
+.rv-hero {
+  position: relative;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.rv-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rv-hero__overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 12, 8, 0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+}
+
+.rv-hero__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 0.6rem;
+}
+
+.rv-hero__title {
+  color: var(--white);
+  font-size: 2.6rem;
+}
+
+.rv-hero__sub {
+  font-family: var(--font-script);
+  font-style: italic;
+  font-size: 1rem;
+  color: #e6dcc6;
+  margin-top: 0.5rem;
+}
+
+/* ───────── Contenedor ───────── */
+.rv-body {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem 4.5rem;
+}
+
+.rv-narrow {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ───────── Stepper de 5 pasos con líneas ───────── */
+.rv-stepper {
+  list-style: none;
+  display: flex;
+  max-width: 880px;
+  margin: 0 auto 3.2rem;
+  padding: 0;
+}
+
+.rv-stepper__item {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a89c85;
+}
+
+.rv-stepper__item::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  right: 50%;
+  width: 100%;
+  height: 1px;
+  background: var(--gold-light);
+}
+
+.rv-stepper__item:first-child::before {
+  display: none;
+}
+
+.rv-stepper__item.is-reached::before {
+  background: var(--ink-soft);
+}
+
+.rv-stepper__dot {
+  position: relative;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-light);
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  color: #a89c85;
+  font-family: var(--font-body);
+}
+
+.rv-stepper__item.is-active {
+  color: var(--gold);
+}
+
+.rv-stepper__item.is-active .rv-stepper__dot {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.rv-stepper__item.is-done {
+  color: var(--ink-soft);
+}
+
+.rv-stepper__item.is-done .rv-stepper__dot {
+  background: #d3c2a8;
+  border-color: #d3c2a8;
+  color: var(--ink-soft);
+}
+
+/* ───────── Títulos ───────── */
+.rv-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.rv-spaced {
+  margin-top: 2.2rem;
+}
+
+.rv-title {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.rv-sub {
+  margin-top: 0.7rem;
+  font-size: 1.05rem;
+  color: #6b5f4d;
+}
+
+/* ───────── Paso 1: turno y cantidad ───────── */
+.rv-time-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.rv-time {
+  padding: 0.9rem 0.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.rv-time.is-active {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+
+.rv-qty {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.rv-qty__btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--card);
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.rv-qty__value {
+  font-size: 1.1rem;
+  min-width: 1.4rem;
+  text-align: center;
+}
+
+.rv-qty__label {
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+/* ───────── Paso 2: calendario ───────── */
+.rv-calendar {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 2.2rem 2.4rem;
+  width: 100%;
+}
+
+.rv-calendar__title {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.rv-calendar__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.rv-calendar__nav button {
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: var(--ink-soft);
+  line-height: 1;
+}
+
+.rv-calendar__nav button:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.rv-calendar__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 0.6rem 0;
+  margin-bottom: 0.4rem;
+}
+
+.rv-calendar__weekdays span {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #a89c85;
+}
+
+.rv-calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.4rem;
+}
+
+.rv-calendar__day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.rv-calendar__day:hover {
+  background: var(--cream-soft);
+}
+
+.rv-calendar__day:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+}
+
+.rv-calendar__day:disabled:hover {
+  background: none;
+}
+
+.rv-calendar__day.is-empty {
+  cursor: default;
+}
+
+.rv-calendar__day.is-empty:hover {
+  background: none;
+}
+
+.rv-calendar__day.is-active {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* ───────── Paso 3: tipos de reserva ───────── */
+.rv-tipos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.9rem 1.9rem;
+  margin-top: 2rem;
+}
+
+.rv-tipo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  min-height: 200px;
+  padding: 1.5rem 1.5rem 1.3rem;
+  background: var(--white);
+  border: 2px solid #d9c49b;
+  border-radius: 14px;
+  cursor: pointer;
+  font: inherit;
+  color: var(--ink-soft);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.rv-tipo:hover:not(:disabled):not(.is-active) {
+  border-color: var(--gold);
+}
+
+.rv-tipo__name {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.rv-tipo__desc {
+  margin-top: 0.7rem;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: #6b5f4d;
+}
+
+.rv-tipo__people {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  font-size: 0.8rem;
+  color: #6b5f4d;
+}
+
+.rv-tipo__price {
+  margin-top: 0.45rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.rv-tipo.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.rv-tipo.is-active .rv-tipo__name {
+  color: #f0dfb4;
+}
+
+.rv-tipo.is-active .rv-tipo__desc,
+.rv-tipo.is-active .rv-tipo__people {
+  color: #e6dcc6;
+}
+
+.rv-tipo:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.rv-hint {
+  margin-top: 1.4rem;
+  font-size: 0.8rem;
+  color: #8a7e69;
+}
+.rv-pay__top {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.rv-pay__instructions h3 {
+  margin: 0 0 12px;
+}
+
+.rv-pay__instructions ol {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.6;
+  color: #866a3f;
+}
+
+.rv-pay__instructions li + li {
+  margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+  .rv-pay__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+/* ───────── Paso 4: datos ───────── */
+.rv-summary {
+  background: var(--card);
+  border-radius: 3px;
+  padding: 1.6rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1.6rem;
+}
+
+.rv-summary__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.88rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px dashed var(--line);
+  color: var(--ink-soft);
+}
+
+.rv-summary__row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.rv-summary__row strong {
+  text-align: right;
+  font-weight: 500;
+}
+
+.rv-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.rv-form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.3rem;
+}
+
+.rv-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.rv-field input {
+  border: 1px solid var(--line);
+  background: var(--white);
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  text-transform: none;
+  letter-spacing: normal;
+  border-radius: 2px;
+  color: var(--ink);
+}
+
+.rv-field input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.rv-phone {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  background: var(--white);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.rv-phone span {
+  padding: 0.85rem 0.8rem;
+  background: var(--cream-soft);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  border-right: 1px solid var(--line);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.rv-phone input {
+  border: none;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ───────── Paso 5: pago ───────── */
+.rv-metodos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.rv-metodo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.7rem;
+  padding: 1.5rem 1.5rem 1.4rem;
+  background: var(--white);
+  border: 2px solid #d9c49b;
+  border-radius: 14px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.rv-metodo:hover:not(.is-active) {
+  border-color: var(--gold);
+}
+
+.rv-metodo__name {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.rv-metodo__desc {
+  font-size: 0.98rem;
+  color: #6b5f4d;
+}
+
+.rv-metodo.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.rv-metodo.is-active .rv-metodo__name {
+  color: #f0dfb4;
+}
+
+.rv-metodo.is-active .rv-metodo__desc {
+  color: #e6dcc6;
+}
+
+.rv-pay {
+  max-width: 840px;
+  margin: 1.8rem auto 0;
+  background: var(--white);
+  border: 2px solid #d9c49b;
+  padding: 1.7rem 1.7rem 1.3rem;
+}
+
+.rv-pay__top {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.rv-pay__qr {
+  flex: 0 0 180px;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #c9a35c;
+  background: var(--cream);
+  color: var(--gold);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.rv-pay__qr--img {
+  display: block;
+  object-fit: contain;
+  padding: 0.5rem;
+  border: 1px solid #d9c49b;
+  background: #fff;
+}
+
+.rv-pay__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.rv-pay__title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.rv-pay__owner {
+  margin-top: 0.4rem;
+  font-size: 0.98rem;
+  color: #6b5f4d;
+}
+
+.rv-pay__label {
+  display: block;
+  margin-top: 1.3rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.rv-pay__label--lg {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+}
+
+.rv-pay__card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+}
+
+.rv-field--full {
+  grid-column: 1 / -1;
+}
+
+.rv-pay__cash {
+  font-size: 1rem;
+  color: #6b5f4d;
+  line-height: 1.6;
+}
+
+.rv-pay__total {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.7rem;
+  padding-top: 1rem;
+  border-top: 1px solid #9c8f78;
+}
+
+.rv-pay__resume {
+  font-size: 0.8rem;
+  color: #6b5f4d;
+}
+
+.rv-pay__amount {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--ink);
+}
+
+/* ───────── Botones ───────── */
+.rv-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3.2rem;
+}
+
+.rv-actions--end {
+  justify-content: flex-end;
+}
+
+.rv-actions--center {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.rv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 260px;
+  padding: 1.15rem 1.9rem;
+  background: var(--ink);
+  color: var(--white);
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.rv-btn:hover:not(:disabled) {
+  background: #322a20;
+}
+
+.rv-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.rv-btn--outline {
+  background: transparent;
+  color: var(--ink);
+  justify-content: center;
+}
+
+.rv-btn--outline:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* ───────── Resumen de compra ───────── */
+.rv-done {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.rv-done__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+
+.rv-done__title {
+  margin-top: 1.1rem;
+  font-size: 1.8rem;
+}
+
+.rv-done__text {
+  margin-top: 0.7rem;
+  max-width: 520px;
+  font-size: 0.98rem;
+  color: #55493a;
+}
+
+.rv-ticket {
+  width: 100%;
+  margin-top: 2rem;
+  background: var(--white);
+  border: 2px solid #d9c49b;
+  border-radius: 10px;
+  padding: 1.6rem 1.8rem 1.4rem;
+  text-align: left;
+}
+
+.rv-ticket__head {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  font-size: 1.3rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.rv-ticket__block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.rv-ticket__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 1rem;
+  border-top: 1px solid #9c8f78;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.rv-ticket__total strong {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: normal;
+  color: var(--ink);
+}
+
+.rv-done .rv-actions {
+  margin-top: 2rem;
+}
+
+.rv-done .rv-btn {
+  min-width: 200px;
+  justify-content: center;
+}
+
+.rv-footnote {
+  margin-top: 1.6rem;
+  font-size: 0.78rem;
+  color: #a89c85;
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 960px) {
+  .rv-tipos {
+    grid-template-columns: 1fr 1fr;
+  }
+  .rv-metodos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .rv-body {
+    padding: 2rem 1.25rem 3.5rem;
+  }
+  .rv-stepper__label {
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+  }
+  .rv-time-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rv-tipos,
+  .rv-metodos,
+  .rv-form__grid,
+  .rv-pay__card {
+    grid-template-columns: 1fr;
+  }
+  .rv-pay__top {
+    flex-direction: column;
+  }
+  .rv-actions {
+    flex-direction: column-reverse;
+  }
+  .rv-btn {
+    min-width: 0;
+    width: 100%;
+  }
+  .rv-calendar {
+    padding: 1.5rem 1rem;
+  }
+}
+.rv-pay__instructions,
+.rv-pay__instructions h3,
+.rv-pay__instructions ol,
+.rv-pay__instructions li {
+  font-family: var(--font-display);
+}
